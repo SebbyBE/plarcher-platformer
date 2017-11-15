@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class AddGoLeft : IActions {
 
-	public AddGoLeft (IActions a) : base(a){}
+	private Player p;
 
-	public override float GoLeft(){
+	public AddGoLeft(Player p){
+		this.p = p;
+	}
+
+	public override void execute(){
 		float hDirection = Input.GetAxisRaw ("Horizontal");
-		if (hDirection < 0)
-			return hDirection;
-		return 0f;
+		if (hDirection < 0) {
+			Vector3 velocity = new Vector3 (hDirection, 0, 0);
+			velocity *=  this.p.speed* Time.deltaTime;
+			this.p.transform.position += velocity;
+		}
 	}
 }

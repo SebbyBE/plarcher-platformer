@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class AddJump : IActions {
 
-	public override bool Jump (){
-		if (Input.GetButtonDown ("Jump")) {
-			return true;
+	private Player p;
+
+	public AddJump(Player p){
+		this.p = p;	
+	}
+
+	public override void execute(){
+		if(Input.GetButtonDown("Jump") && this.p.isGrounded){
+			this.p.rigidBody.AddForce (Vector3.up * this.p.jumpStrength, ForceMode2D.Impulse);
 		}
-		return false;
 	}
 }

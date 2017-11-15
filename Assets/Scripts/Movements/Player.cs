@@ -4,65 +4,45 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	[SerializeField]
-	int speed = 1;
+	public int speed = 5;
+	public LayerMask groundLayer;
+	public float groundDistance = 0.6f;
+	public float jumpStrength = 7f;
+	public bool isGrounded = false;
 
 	public Rigidbody2D rigidBody;
 
-	private IActions actions;
-	private float rightDirection;
-	private float leftDirection;
-	private bool isJumping;
-
-	void Awake() {
-
-	}
+	private ArrayList actionsList;
 
 	// Use this for initialization
 	void Start () {
-		this.actions = (IActions)new AddGoRight (new Actions());
+		this.actionsList = new ArrayList ();
+		this.actionsList.Add (new AddGoRight (this));
 	}
-
 
 	// Update is called once per frame
 	void Update () {
-		CheckMovementAndMove ();
-	}
-
-
-
-	void CheckMovementAndMove() {
-		/*
-		Vector3 velocity = GetAxisVector ();
-		velocity *= speed * Time.deltaTime;
-		transform.position += velocity;
-
-
-		Vector3 GetAxisVector() {
-		float hDirection = Input.GetAxisRaw ("Horizontal");
-		float vDirection = Input.GetAxisRaw ("Vertical");
-		return new Vector3 (hDirection, vDirection, 0);
-		}
-		*/
+		Debug.DrawRay (transform.position, Vector3.down * groundDistance,Color.red);
 
 		if(Input.GetButtonDown("Fire2")){
-			this.actions = (IActions)new AddGoLeft(this.actions);
+			this.actionsList.Add (new AddGoLeft (this));
+			this.actionsList.Add (new AddJump (this));
 		}
-
-
-		rightDirection = actions.GoRight ();
-		leftDirection = actions.GoLeft ();
-
-		if (actions.Jump ()) {
-			
+		foreach(IActions a in this.actionsList){
+			a.execute ();
 		}
+	}
 
-			
-		float hDirection = rightDirection + leftDirection;
-		float vDirection = 0;
-		Vector3 velocity = new Vector3 (hDirection, vDirection, 0);
-		velocity *= speed * Time.deltaTime;
-		transform.position += velocity;
+	void FixedUpdate(){
+		if (Physics2D.Raycast (transform.position, Vector2.down, groundDistance, groundLayer)) {
+			isGrounded = true;
+		} else {
+			isGrounded = false;
+		}
+	}
+
+	public void AddBehaviour(IActions action){
+		this.actionsList.Add (action);
 	}
 
 

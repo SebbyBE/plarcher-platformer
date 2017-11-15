@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Movements\Actions.cs" />
      <Compile Include="Assets\Scripts\Movements\AddGoLeft.cs" />
      <Compile Include="Assets\Scripts\Movements\AddGoRight.cs" />
      <Compile Include="Assets\Scripts\Movements\AddJump.cs" />

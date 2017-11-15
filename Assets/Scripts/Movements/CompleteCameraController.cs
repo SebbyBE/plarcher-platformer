@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CompleteCameraController : MonoBehaviour {
 
-	public GameObject player;
+	public Player player;
 
 
 	private Vector3 offset;
