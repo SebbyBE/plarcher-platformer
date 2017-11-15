@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	public float jumpStrength = 7f;
 	public bool isGrounded = false;
 
+	public int coins = 0;
+
 	public Rigidbody2D rigidBody;
 
 	private ArrayList actionsList;
@@ -20,12 +22,11 @@ public class Player : MonoBehaviour {
 	void Start () {
 		INSTANCE = this;
 		this.gameObject.AddComponent<AddGoRight> ();
+		this.gameObject.AddComponent<GetCoin> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		Debug.DrawRay (transform.position, Vector3.down * groundDistance,Color.red);
-
 		if(Input.GetButtonDown("Fire2")){
 			this.gameObject.AddComponent<AddGoLeft> ();
 			this.gameObject.AddComponent<AddJump> ();
