@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddJump : IActions {
-
-	private Player p;
-
-	public AddJump(Player p){
-		this.p = p;	
-	}
-
-	public override void execute(){
-		if(Input.GetButtonDown("Jump") && this.p.isGrounded){
-			this.p.rigidBody.AddForce (Vector3.up * this.p.jumpStrength, ForceMode2D.Impulse);
+public class AddJump : MonoBehaviour {
+	void Update(){
+		if(Input.GetButtonDown("Jump") && Player.INSTANCE.isGrounded){
+			Player.INSTANCE.rigidBody.AddForce (Vector3.up * Player.INSTANCE.jumpStrength, ForceMode2D.Impulse);
 		}
 	}
 }

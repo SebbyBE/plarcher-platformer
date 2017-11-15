@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	public static Player INSTANCE;
+
 	public int speed = 5;
 	public LayerMask groundLayer;
 	public float groundDistance = 0.6f;
@@ -16,8 +18,8 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.actionsList = new ArrayList ();
-		this.actionsList.Add (new AddGoRight (this));
+		INSTANCE = this;
+		this.gameObject.AddComponent<AddGoRight> ();
 	}
 
 	// Update is called once per frame
@@ -25,11 +27,8 @@ public class Player : MonoBehaviour {
 		Debug.DrawRay (transform.position, Vector3.down * groundDistance,Color.red);
 
 		if(Input.GetButtonDown("Fire2")){
-			this.actionsList.Add (new AddGoLeft (this));
-			this.actionsList.Add (new AddJump (this));
-		}
-		foreach(IActions a in this.actionsList){
-			a.execute ();
+			this.gameObject.AddComponent<AddGoLeft> ();
+			this.gameObject.AddComponent<AddJump> ();
 		}
 	}
 
@@ -40,11 +39,4 @@ public class Player : MonoBehaviour {
 			isGrounded = false;
 		}
 	}
-
-	public void AddBehaviour(IActions action){
-		this.actionsList.Add (action);
-	}
-
-
-
 }
