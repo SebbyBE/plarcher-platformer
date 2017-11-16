@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 		INSTANCE = this;
 		this.gameObject.AddComponent<AddGoRight> ();
 		this.gameObject.AddComponent<GetCoin> ();
+		this.gameObject.AddComponent<ClimbingLadders> ();
 	}
 
 	// Update is called once per frame
