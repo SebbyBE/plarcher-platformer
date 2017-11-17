@@ -5,22 +5,18 @@ using UnityEngine;
 public class ClimbingLadders : MonoBehaviour {
 
 	private bool canClimb = false;
-	private float gravity = 12000f;
+	private float gravity = 1f;
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.tag == "Ladder") {
 			canClimb = true;
-			gravity = Player.INSTANCE.rigidBody.gravityScale;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D col){
 		if (col.tag == "Ladder") {
 			canClimb = false;
-			if (gravity != 12000f) {
-				Player.INSTANCE.rigidBody.gravityScale = gravity;
-				gravity = 12000f;
-			}
+			Player.INSTANCE.rigidBody.gravityScale = gravity;
 		}
 	}
 
@@ -42,6 +38,8 @@ public class ClimbingLadders : MonoBehaviour {
 					Player.INSTANCE.transform.position += velocity;
 				}
 			} 
+		} else {
+			Player.INSTANCE.rigidBody.gravityScale = gravity;
 		}
 	}
 }
