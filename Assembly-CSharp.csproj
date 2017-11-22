@@ -46,17 +46,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CustomEvent.cs" />
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
-     <Compile Include="Assets\Scripts\Movements\AddGoLeft.cs" />
-     <Compile Include="Assets\Scripts\Movements\AddGoRight.cs" />
-     <Compile Include="Assets\Scripts\Movements\AddJump.cs" />
      <Compile Include="Assets\Scripts\Movements\CompleteCameraController.cs" />
      <Compile Include="Assets\Scripts\Movements\DoubleJump.cs" />
+     <Compile Include="Assets\Scripts\Movements\Jump.cs" />
      <Compile Include="Assets\Scripts\Movements\KeyboardMovement.cs" />
+     <Compile Include="Assets\Scripts\Movements\LeftComponent.cs" />
      <Compile Include="Assets\Scripts\Movements\Player.cs" />
+     <Compile Include="Assets\Scripts\Movements\RightComponent.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
+     <Compile Include="Assets\Scripts\TextUpdater.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/splace/UNITY/plarcher-platformer/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

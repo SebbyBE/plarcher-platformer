@@ -8,12 +8,12 @@ public class DoubleJump : MonoBehaviour {
 
 
 	void Awake(){
-		Player.INSTANCE.gameObject.GetComponent<AddJump> ().enabled = false;
+		transform.gameObject.GetComponent<Jump> ().enabled = false;
 	}
 
 	void Update () {
 		if(Input.GetButton("Jump")){
-			if (Player.INSTANCE.isGrounded) {
+			if (Player.INSTANCE.isGrounded || Player.INSTANCE.isClimbing) {
 				Player.INSTANCE.rigidBody.velocity = new Vector2 (Player.INSTANCE.rigidBody.velocity.x, 0);
 				Player.INSTANCE.rigidBody.AddForce (Vector3.up * Player.INSTANCE.jumpStrength, ForceMode2D.Impulse);
 				canDoubleJump = true;
