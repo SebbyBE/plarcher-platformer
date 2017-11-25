@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClimbingLadders : MonoBehaviour {
 
-	private bool canClimb = false;
+	public bool canClimb = false;
 	private float gravity = 1f;
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -16,7 +16,9 @@ public class ClimbingLadders : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col){
 		if (col.tag == "Ladder") {
 			canClimb = false;
-			Player.INSTANCE.rigidBody.gravityScale = gravity;
+			gameObject.GetComponent<Rigidbody2D>().gravityScale = gravity;
+
+			Player.INSTANCE.isClimbing = false;
 		}
 	}
 
@@ -26,6 +28,7 @@ public class ClimbingLadders : MonoBehaviour {
 			Vector3 velocity;
 			if (vDirection != 0) {
 				Player.INSTANCE.rigidBody.gravityScale = 0f;
+				Player.INSTANCE.isClimbing = true;
 				if (vDirection < 0) {
 					if (!Player.INSTANCE.isGrounded) {
 						velocity = new Vector3 (0, vDirection, 0);
@@ -40,6 +43,7 @@ public class ClimbingLadders : MonoBehaviour {
 			} 
 		} else {
 			Player.INSTANCE.rigidBody.gravityScale = gravity;
+			Player.INSTANCE.isClimbing = false;
 		}
 	}
 }
