@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vendor : MonoBehaviour {
 
-	public bool canInteract = false;
+	private bool canInteract = false;
 	public GameObject panel;
 
 	void OnTriggerEnter2D(Collider2D player){
@@ -23,7 +23,6 @@ public class Vendor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire3") && canInteract) {
-			print ("Fire 3 pressed and can Interact");
 			panel.SetActive (!panel.activeSelf);
 		}
 	}

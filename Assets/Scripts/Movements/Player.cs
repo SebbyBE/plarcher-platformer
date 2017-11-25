@@ -28,8 +28,6 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		INSTANCE = this;
-		this.gameObject.AddComponent<RightComponent> ();
-		this.gameObject.AddComponent<GetCoin> ();
 		lookRight = true;
 	}
 
