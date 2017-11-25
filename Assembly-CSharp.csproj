@@ -48,12 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
+     <Compile Include="Assets\Scripts\Interactions\RemoveCoin.cs" />
      <Compile Include="Assets\Scripts\Movements\AddGoLeft.cs" />
      <Compile Include="Assets\Scripts\Movements\AddGoRight.cs" />
      <Compile Include="Assets\Scripts\Movements\AddJump.cs" />
      <Compile Include="Assets\Scripts\Movements\CompleteCameraController.cs" />
      <Compile Include="Assets\Scripts\Movements\KeyboardMovement.cs" />
      <Compile Include="Assets\Scripts\Movements\Player.cs" />
+     <Compile Include="Assets\Scripts\Vendor\Powers\PowerInfos.cs" />
      <Compile Include="Assets\Scripts\Vendor\UI\DragPanel.cs" />
      <Compile Include="Assets\Scripts\Vendor\UI\FocusPanel.cs" />
      <Compile Include="Assets\Scripts\Vendor\UI\ResizePanel.cs" />

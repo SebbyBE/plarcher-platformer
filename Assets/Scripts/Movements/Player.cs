@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour {
 
@@ -21,17 +22,6 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		INSTANCE = this;
-		this.gameObject.AddComponent<AddGoRight> ();
-		this.gameObject.AddComponent<GetCoin> ();
-	}
-
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetButtonDown("Fire2")){
-			this.gameObject.AddComponent<AddGoLeft> ();
-			this.gameObject.AddComponent<AddJump> ();
-			this.gameObject.AddComponent<ClimbingLadders> ();
-		}
 	}
 
 	void FixedUpdate(){
@@ -39,6 +29,33 @@ public class Player : MonoBehaviour {
 			isGrounded = true;
 		} else {
 			isGrounded = false;
+		}
+	}
+
+	public void addPower (PowerInfos infos)
+	{
+		Type monoB = Type.GetType (infos.name);
+		if (monoB != null) {//mono behaviour exists
+			if ((this.GetComponent (monoB)) == null) {//Player doesn't have the component
+				if ((this.GetComponent<RemoveCoin> ()) == null) {//Player doesn't have the RemoveCoin script
+					print ("Player needs to have the RemoveCoin script");
+				} else {
+					if (this.GetComponent<RemoveCoin> ().removeCoin (infos.price)) {//Check if player has enough money to buy
+						Component ret = this.gameObject.AddComponent (monoB);//try to add behaviour
+						if (ret == null) {
+							print ("error adding " + infos.name);
+						} else {
+							print ("added " + infos.name + " to " + ret.name);
+						}
+					} else {
+						print ("not enough money !");
+					}
+				}
+			} else {
+				print ("player already has component");
+			}
+		} else {//wrong name entered
+			print ("the monobehaviour's name is wrong");
 		}
 	}
 }
