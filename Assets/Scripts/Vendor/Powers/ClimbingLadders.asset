@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: ClimbingLadders
   m_EditorClassIdentifier: 
   name: ClimbingLadders
-  price: 15
+  price: 8

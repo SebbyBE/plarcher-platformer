@@ -6,8 +6,8 @@ public class GetCoin : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.tag == "Coin") {
-			Player.INSTANCE.AddCoin ();
 			Destroy (col.transform.parent.gameObject);
+			Player.INSTANCE.AddCoin ();
 		}
 	}
 }

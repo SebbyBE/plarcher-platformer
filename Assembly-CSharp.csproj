@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\CustomEvent.cs" />
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
-     <Compile Include="Assets\Scripts\Interactions\RemoveCoin.cs" />
      <Compile Include="Assets\Scripts\Movements\CompleteCameraController.cs" />
      <Compile Include="Assets\Scripts\Movements\DoubleJump.cs" />
      <Compile Include="Assets\Scripts\Movements\Jump.cs" />

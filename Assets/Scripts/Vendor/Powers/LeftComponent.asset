@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916d8bb6357d119488c1e61410e541b5, type: 3}
-  m_Name: AddGoLeft
+  m_Name: LeftComponent
   m_EditorClassIdentifier: 
   name: LeftComponent
-  price: 0
+  price: 1

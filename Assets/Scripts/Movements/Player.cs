@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
 
 	private ArrayList actionsList;
 
-	public IntEvent OnCoinCahnge;
+	public IntEvent OnCoinChange;
 
 	// Use this for initialization
 	void Start () {
@@ -32,18 +32,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		OnCoinCahnge.Invoke (0);
+		UpdateCoins ();
 	}
-
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetButtonDown("Fire2")){
-			this.gameObject.AddComponent<LeftComponent> ();
-			this.gameObject.AddComponent<Jump> ();
-			this.gameObject.AddComponent<ClimbingLadders> ();
-		}
-	}
-
+		
 	void FixedUpdate(){
 		if (Physics2D.Raycast (transform.position, Vector2.down, groundDistance, groundLayer)) {
 			isGrounded = true;
@@ -52,24 +43,29 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.O)) {
+			this.gameObject.AddComponent<LeftComponent> ();
+			this.gameObject.AddComponent<Jump> ();
+			this.gameObject.AddComponent<ClimbingLadders> ();
+			this.gameObject.AddComponent<DoubleJump> ();
+		}
+	}
+
 	public void addPower (PowerInfos infos)
 	{
 		Type monoB = Type.GetType (infos.name);
 		if (monoB != null) {//mono behaviour exists
 			if ((this.GetComponent (monoB)) == null) {//Player doesn't have the component
-				if ((this.GetComponent<RemoveCoin> ()) == null) {//Player doesn't have the RemoveCoin script
-					print ("Player needs to have the RemoveCoin script");
-				} else {
-					if (this.GetComponent<RemoveCoin> ().removeCoin (infos.price)) {//Check if player has enough money to buy
-						Component ret = this.gameObject.AddComponent (monoB);//try to add behaviour
-						if (ret == null) {
-							print ("error adding " + infos.name);
-						} else {
-							print ("added " + infos.name + " to " + ret.name);
-						}
+				if (RemoveCoin (infos.price)) {//Check if player has enough money to buy
+					Component ret = this.gameObject.AddComponent (monoB);//try to add behaviour
+					if (ret == null) {
+						print ("error adding " + infos.name);
 					} else {
-						print ("not enough money !");
+						print ("added " + infos.name + " to " + ret.name);
 					}
+				} else {
+					print ("not enough money !");
 				}
 			} else {
 				print ("player already has component");
@@ -78,15 +74,23 @@ public class Player : MonoBehaviour {
 			print ("the monobehaviour's name is wrong");
 		}
 	}
-	void SetCoins(int newCoins){
-		coins = newCoins;
-		OnCoinCahnge.Invoke (coins);
+
+	private void UpdateCoins(){//set coins in UI
+		OnCoinChange.Invoke (coins);
 	}
 
 	public void AddCoin(){
 		coins++;
-		SetCoins (coins);
+		UpdateCoins ();
 	}
 
-
+	public bool RemoveCoin(int amount){
+		if ((coins - amount) < 0) {
+			return false;
+		} else {
+			coins -= amount;
+			UpdateCoins ();
+			return true;
+		}
+	}
 }

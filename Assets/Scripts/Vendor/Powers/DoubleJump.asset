@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916d8bb6357d119488c1e61410e541b5, type: 3}
-  m_Name: AddJump
+  m_Name: DoubleJump
   m_EditorClassIdentifier: 
-  name: Jump
-  price: 2
+  name: DoubleJump
+  price: 5
