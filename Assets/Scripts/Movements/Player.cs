@@ -60,8 +60,10 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Flip(){
+		Vector3 scale = transform.localScale; 
 		lookRight = !lookRight;
-		transform.localScale *= -1;
+		scale.x *= -1;
+		transform.localScale = scale;
 	}
 
 	public void addPower (PowerInfos infos)
