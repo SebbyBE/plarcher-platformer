@@ -10,8 +10,7 @@ public class LeftComponent: MonoBehaviour {
 			velocity *=  Player.INSTANCE.speed* Time.deltaTime;
 			Player.INSTANCE.transform.position += velocity;
 			if (Player.INSTANCE.lookRight) {
-				Player.INSTANCE.transform.Rotate (Vector3.up * -180,Space.World);
-				Player.INSTANCE.lookRight = false;
+				Player.INSTANCE.Flip ();
 			}
 		}
 	}

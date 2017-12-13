@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Vendor : MonoBehaviour {
 
-	private bool canInteract = false;
+	public bool canInteract = false;
 	public GameObject panel;
 	public List<PowerInfos> infos;
 	private GameObject buttonPrefab;
@@ -23,6 +23,7 @@ public class Vendor : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D player){
+		print ("enter collision");
 		if (player.tag == "Player") {
 			canInteract = true;
 		}
@@ -38,6 +39,7 @@ public class Vendor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown ("Fire3") && canInteract) {
+			print ("panel activé");
 			panel.SetActive (!panel.activeSelf);
 		}
 	}

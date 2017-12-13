@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plarcher-platformer", "Assembly-CSharp-firstpass.csproj", "{C7C8A7B5-26D7-C727-04BC-F8E7B379238E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plarcher-platformer", "Assembly-CSharp.csproj", "{66EAA21D-3CAE-7D84-ADE9-CEA99C6D0195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plarcher-platformer", "Assembly-CSharp-Editor.csproj", "{408C3648-BA07-B619-2F58-B627F63FF00C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7C8A7B5-26D7-C727-04BC-F8E7B379238E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C8A7B5-26D7-C727-04BC-F8E7B379238E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C8A7B5-26D7-C727-04BC-F8E7B379238E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C8A7B5-26D7-C727-04BC-F8E7B379238E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66EAA21D-3CAE-7D84-ADE9-CEA99C6D0195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66EAA21D-3CAE-7D84-ADE9-CEA99C6D0195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66EAA21D-3CAE-7D84-ADE9-CEA99C6D0195}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66EAA21D-3CAE-7D84-ADE9-CEA99C6D0195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408C3648-BA07-B619-2F58-B627F63FF00C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408C3648-BA07-B619-2F58-B627F63FF00C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408C3648-BA07-B619-2F58-B627F63FF00C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408C3648-BA07-B619-2F58-B627F63FF00C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

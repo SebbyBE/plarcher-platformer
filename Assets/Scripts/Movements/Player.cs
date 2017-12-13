@@ -15,6 +15,10 @@ public class Player : MonoBehaviour {
 	public bool isGrounded = false;
 	public bool isClimbing = false;
 
+	[HideInInspector]
+	public Animator anim;
+
+	[HideInInspector]
 	public bool lookRight;
 
 	public int coins = 0;
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour {
 	void Start () {
 		INSTANCE = this;
 		lookRight = true;
+		anim = GetComponentInChildren<Animator> ();
 	}
 
 	void OnEnable(){
@@ -41,6 +46,8 @@ public class Player : MonoBehaviour {
 		} else {
 			isGrounded = false;
 		}
+		anim.SetBool ("IsGrounded", isGrounded);
+		anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 	}
 
 	void Update(){
@@ -50,6 +57,11 @@ public class Player : MonoBehaviour {
 			this.gameObject.AddComponent<ClimbingLadders> ();
 			this.gameObject.AddComponent<DoubleJump> ();
 		}
+	}
+
+	public void Flip(){
+		lookRight = !lookRight;
+		transform.localScale *= -1;
 	}
 
 	public void addPower (PowerInfos infos)
