@@ -107,7 +107,6 @@ public class Player : MonoBehaviour {
 	public void AddCoin(){
 		coins++;
 		UpdateCoins ();
-		Talk ("yay coin");
 	}
 
 	public bool RemoveCoin(int amount){
@@ -129,5 +128,6 @@ public class Player : MonoBehaviour {
 	private IEnumerator clearDialogueBox(){
 		yield return new WaitForSeconds(5);
 		dialogueBox.SetActive (false);
+		StopCoroutine ("clearDialogueBox");
 	}
 }

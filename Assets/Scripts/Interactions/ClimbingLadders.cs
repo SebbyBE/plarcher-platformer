@@ -22,6 +22,10 @@ public class ClimbingLadders : MonoBehaviour {
 		}
 	}
 
+	void Start(){
+		Player.INSTANCE.Talk ("I should just press\nthe top arrow to climb a ladder !");
+	}
+
 	void FixedUpdate(){
 		if (canClimb) {
 			float vDirection = Input.GetAxisRaw ("Vertical");

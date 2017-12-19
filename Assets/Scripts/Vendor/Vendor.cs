@@ -37,7 +37,7 @@ public class Vendor : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Fire3") && canInteract) {
+		if (Input.GetButtonDown ("Fire2") && canInteract) {
 			print ("panel activé");
 			panel.SetActive (!panel.activeSelf);
 		}

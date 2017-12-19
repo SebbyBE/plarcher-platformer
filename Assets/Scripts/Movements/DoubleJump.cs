@@ -11,6 +11,11 @@ public class DoubleJump : MonoBehaviour {
 		transform.gameObject.GetComponent<Jump> ().enabled = false;
 	}
 
+
+	void Start(){
+		Player.INSTANCE.Talk ("I should just press\nthe space bar a second time\nto double jump !");
+	}
+
 	void Update () {
 		if(Input.GetButton("Jump")){
 			if (Player.INSTANCE.isGrounded || Player.INSTANCE.isClimbing) {

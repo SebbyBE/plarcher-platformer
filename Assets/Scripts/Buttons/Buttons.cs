@@ -24,14 +24,12 @@ public class Buttons : MonoBehaviour {
 			case 1:
 				Player.INSTANCE.Talk ("Hey the button changed color.\nIt probably did something");
 				break;
+			case openFirstDoor:
+				Player.INSTANCE.Talk ("I think I heard something,\nmaybe something happened ?");
+				//todo add following part
+				break;
 			}
 		}
 	}
-
-	void FixedUpdate(){
-		if (activatedButtons == openFirstDoor) {
-			Player.INSTANCE.Talk ("I think I heard something,\nmaybe something happened ?");
-			//todo
-		}
-	}
+		
 }
