@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour {
 	private static int activatedButtons;
 	private MeshRenderer render;
 
-	private int openFirstDoor = 2;
+	private readonly int openFirstDoor = 2;
 
 	// Use this for initialization
 	void Start () {
