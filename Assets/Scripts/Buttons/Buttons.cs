@@ -7,8 +7,6 @@ public class Buttons : MonoBehaviour {
 	private static int activatedButtons;
 	private MeshRenderer render;
 
-	private readonly int openFirstDoor = 2;
-
 	// Use this for initialization
 	void Start () {
 		activatedButtons = 0;
@@ -24,7 +22,7 @@ public class Buttons : MonoBehaviour {
 			case 1:
 				Player.INSTANCE.Talk ("Hey the button changed color.\nIt probably did something");
 				break;
-			case openFirstDoor:
+			case 2:
 				Player.INSTANCE.Talk ("I think I heard something,\nmaybe something happened ?");
 				//todo add following part
 				break;
