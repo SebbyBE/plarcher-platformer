@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using My.Events;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -14,6 +15,9 @@ public class Player : MonoBehaviour {
 	public float jumpStrength = 7f;
 	public bool isGrounded = false;
 	public bool isClimbing = false;
+
+	public GameObject dialogueBox;
+	public TextMesh dialogue;
 
 	[HideInInspector]
 	public Animator anim;
@@ -34,6 +38,8 @@ public class Player : MonoBehaviour {
 		INSTANCE = this;
 		lookRight = true;
 		anim = GetComponentInChildren<Animator> ();
+		dialogueBox = this.transform.Find ("DialoguePlayer").gameObject;
+		dialogue = this.transform.Find ("DialoguePlayer").GetComponent<TextMesh>();
 	}
 
 	void OnEnable(){
@@ -64,6 +70,9 @@ public class Player : MonoBehaviour {
 		lookRight = !lookRight;
 		scale.x *= -1;
 		transform.localScale = scale;
+		Vector3 diaScale = dialogueBox.transform.localScale; 
+		diaScale.x *= -1;
+		dialogueBox.transform.localScale = diaScale;
 	}
 
 	public void addPower (PowerInfos infos)
@@ -79,9 +88,11 @@ public class Player : MonoBehaviour {
 						print ("added " + infos.name + " to " + ret.name);
 					}
 				} else {
+					Talk ("I don't have enough money");
 					print ("not enough money !");
 				}
 			} else {
+				Talk ("I can already do that !");
 				print ("player already has component");
 			}
 		} else {//wrong name entered
@@ -96,6 +107,7 @@ public class Player : MonoBehaviour {
 	public void AddCoin(){
 		coins++;
 		UpdateCoins ();
+		Talk ("yay coin");
 	}
 
 	public bool RemoveCoin(int amount){
@@ -106,5 +118,16 @@ public class Player : MonoBehaviour {
 			UpdateCoins ();
 			return true;
 		}
+	}
+
+	public void Talk(string text){
+		dialogue.text = text;
+		dialogueBox.SetActive (true);
+		StartCoroutine (clearDialogueBox ());
+	}
+
+	private IEnumerator clearDialogueBox(){
+		yield return new WaitForSeconds(5);
+		dialogueBox.SetActive (false);
 	}
 }

@@ -23,7 +23,6 @@ public class Vendor : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D player){
-		print ("enter collision");
 		if (player.tag == "Player") {
 			canInteract = true;
 		}

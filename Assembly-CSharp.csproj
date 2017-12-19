@@ -54,6 +54,7 @@
      <Compile Include="Assets\FurBall2D_mobile\Scripts\CameraController_m.cs" />
      <Compile Include="Assets\FurBall2D_mobile\Scripts\DestroyCloud_m.cs" />
      <Compile Include="Assets\FurBall2D_mobile\Scripts\PlayerController_m.cs" />
+     <Compile Include="Assets\Scripts\Buttons\Buttons.cs" />
      <Compile Include="Assets\Scripts\CustomEvent.cs" />
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
