@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour {
 	private static int activatedButtons;
 	private MeshRenderer render;
 
-	public int openFirstDoor;
+	private int openFirstDoor = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -19,12 +19,10 @@ public class Buttons : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D player){
 		if (player.tag == "Player") {
 			activatedButtons++;
+			render.material.color = Color.green;
 			switch (activatedButtons) {
 			case 1:
 				Player.INSTANCE.Talk ("Hey the button changed color.\nIt probably did something");
-				break;
-			case 2:
-				Player.INSTANCE.Talk ("I should go to the vendor\nwho told me to press the buttons\nin the first place");
 				break;
 			}
 		}
@@ -32,7 +30,8 @@ public class Buttons : MonoBehaviour {
 
 	void FixedUpdate(){
 		if (activatedButtons == openFirstDoor) {
-			//TODO 
+			Player.INSTANCE.Talk ("I think I heard something,\nmaybe something happened ?");
+			//todo
 		}
 	}
 }
