@@ -16,8 +16,8 @@ public class Player : MonoBehaviour {
 	public bool isGrounded = false;
 	public bool isClimbing = false;
 
-	public GameObject dialogueBox;
-	public TextMesh dialogue;
+	private GameObject dialogueBox;
+	private TextMesh dialogue;
 
 	[HideInInspector]
 	public Animator anim;
