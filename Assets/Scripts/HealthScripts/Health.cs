@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 	public int currentHealth;
-
 	private int initHealth = 3;
 
 	void OnEnable(){

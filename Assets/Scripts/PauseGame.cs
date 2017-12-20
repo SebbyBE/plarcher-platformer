@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseGame : MonoBehaviour {
 	public Transform pauseCanvas;
+	public GameObject dieMenu;
 
 	void OnEnable(){
 		Time.timeScale = 1;
@@ -12,7 +13,9 @@ public class PauseGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Pause ();
+			if (!dieMenu.activeInHierarchy) {
+				Pause ();
+			}
 		}	
 	}
 
@@ -24,13 +27,5 @@ public class PauseGame : MonoBehaviour {
 			pauseCanvas.gameObject.SetActive (false);
 			Time.timeScale = 1;
 		}
-	}
-
-	public void Exit(){
-	
-	}
-
-	public void Restart(){
-	
 	}
 }

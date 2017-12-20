@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 
 	private GameObject dialogueBox;
 	private TextMesh dialogue;
+	public GameObject dieMenu;
 
 	[HideInInspector]
 	public Animator anim;
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour {
 
 	void OnEnable(){
 		UpdateCoins ();
+	}
+
+	void OnDestroy(){
+		dieMenu.SetActive (true);
 	}
 		
 	void FixedUpdate(){
