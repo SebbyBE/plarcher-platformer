@@ -10,6 +10,8 @@ public class Buttons : MonoBehaviour {
 
 	public MyEvent toInvoke;
 
+	private bool activated = false;
+
 	// Use this for initialization
 	void Start () {
 		activatedButtons = 0;
@@ -18,8 +20,9 @@ public class Buttons : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D player){
-		if (player.tag == "Player") {
+		if (player.tag == "Player" && !this.activated) {
 			activatedButtons++;
+			this.activated = true;
 			render.material.color = Color.green;
 			switch (activatedButtons) {
 			case 1:

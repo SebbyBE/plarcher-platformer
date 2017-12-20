@@ -57,6 +57,8 @@
      <Compile Include="Assets\Scripts\Buttons\Buttons.cs" />
      <Compile Include="Assets\Scripts\Buttons\SecretDoor.cs" />
      <Compile Include="Assets\Scripts\CustomEvent.cs" />
+     <Compile Include="Assets\Scripts\HealthScripts\Health.cs" />
+     <Compile Include="Assets\Scripts\HealthScripts\PlayerDamage.cs" />
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
      <Compile Include="Assets\Scripts\Movements\CompleteCameraController.cs" />
@@ -74,6 +76,9 @@
      <Compile Include="Assets\Scripts\Vendor\UI\FocusPanel.cs" />
      <Compile Include="Assets\Scripts\Vendor\UI\ResizePanel.cs" />
      <Compile Include="Assets\Scripts\Vendor\Vendor.cs" />
+     <Compile Include="Assets\amusedART\StoneMonster\Script\Animation_Test.cs" />
+     <Compile Include="Assets\amusedART\StoneMonster\Script\Colision.cs" />
+     <Compile Include="Assets\amusedART\StoneMonster\Script\Patroling.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="Facebook.Unity.Settings">

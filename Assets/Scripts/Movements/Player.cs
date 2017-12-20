@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	public float jumpStrength = 7f;
 	public bool isGrounded = false;
 	public bool isClimbing = false;
+	public bool isInvincible = false;
 
 	private GameObject dialogueBox;
 	private TextMesh dialogue;
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour {
 
 	public IntEvent OnCoinChange;
 
+	private Health health;
+
 	// Use this for initialization
 	void Start () {
 		INSTANCE = this;
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour {
 		anim = GetComponentInChildren<Animator> ();
 		dialogueBox = this.transform.Find ("DialoguePlayer").gameObject;
 		dialogue = this.transform.Find ("DialoguePlayer").GetComponent<TextMesh>();
+		health = GetComponent<Health> ();
 	}
 
 	void OnEnable(){
@@ -128,5 +132,17 @@ public class Player : MonoBehaviour {
 		yield return new WaitForSeconds(5);
 		dialogueBox.SetActive (false);
 		StopCoroutine ("clearDialogueBox");
+	}
+
+	public void TakeDamage(int damage){
+		this.health.TakeDamage(damage);
+		this.isInvincible = true;
+		StartCoroutine (invicible ());
+	}
+
+	private IEnumerator invicible(){
+		yield return new WaitForSeconds(2);
+		this.isInvincible = false;
+		StopCoroutine ("invicible");
 	}
 }
