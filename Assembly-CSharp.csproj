@@ -84,6 +84,8 @@
      <Compile Include="Assets\amusedART\StoneMonster\Script\Patroling.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Fonts\OFL.txt" />
+     <None Include="Assets\LowPolyWeapon\Shaders\AlphaTest-DiffuseDoublesided.shader" />
+     <None Include="Assets\LowPolyWeapon\Shaders\AlphaTest-DiffuseBack.shader" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>D:/worksapce/Unity/plarcher-platformer/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
