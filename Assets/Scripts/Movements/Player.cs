@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using My.Events;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 

@@ -55,6 +55,7 @@
      <Compile Include="Assets\FurBall2D_mobile\Scripts\DestroyCloud_m.cs" />
      <Compile Include="Assets\FurBall2D_mobile\Scripts\PlayerController_m.cs" />
      <Compile Include="Assets\Scripts\Buttons\Buttons.cs" />
+     <Compile Include="Assets\Scripts\Buttons\SecretDoor.cs" />
      <Compile Include="Assets\Scripts\CustomEvent.cs" />
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
@@ -76,7 +77,7 @@
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Fonts\OFL.txt" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/kyril/plarcher-platformer/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/ktirche15/plarcher-platformer/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

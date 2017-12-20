@@ -10,4 +10,10 @@ namespace My.Events {
 
 	[System.Serializable]
 	public class IntEvent: UnityEvent<int>{}
+
+	[System.Serializable]
+	public class MyEvent: UnityEvent{}
+
+
+
 }
