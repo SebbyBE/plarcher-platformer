@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 	public bool isClimbing = false;
 	public bool isInvincible = false;
 
+	public MyEvent secretDoor;
+
 	private GameObject dialogueBox;
 	private TextMesh dialogue;
 	public GameObject dieMenu;
@@ -44,7 +46,6 @@ public class Player : MonoBehaviour {
 		dialogueBox = this.transform.Find ("DialoguePlayer").gameObject;
 		dialogue = this.transform.Find ("DialoguePlayer").GetComponent<TextMesh>();
 		health = GetComponent<Health> ();
-		this.gameObject.AddComponent<RunComponent> ();
 	}
 
 	void OnEnable(){
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour {
 	}
 		
 	void FixedUpdate(){
+		//vérification si le joueur est au sol ou non
 		if (Physics2D.Raycast (transform.position, Vector2.down, groundDistance, groundLayer)) {
 			isGrounded = true;
 		} else {
@@ -66,15 +68,20 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update(){
+		//décommenter et appuyer sur 'O' pour passer directement à la deuxième partie du jeu (cheat)
+		/*
 		if (Input.GetKeyDown (KeyCode.O)) {
 			this.gameObject.AddComponent<LeftComponent> ();
 			this.gameObject.AddComponent<Jump> ();
 			this.gameObject.AddComponent<ClimbingLadders> ();
 			this.gameObject.AddComponent<DoubleJump> ();
-		}
+			Buttons.activatedButtons = 2;
+			secretDoor.Invoke ();
+		}*/
 	}
 
 	public void Flip(){
+		//inversion du sprite du joueur sur l'axe des x et de sa boite de dialogue
 		Vector3 scale = transform.localScale; 
 		lookRight = !lookRight;
 		scale.x *= -1;
@@ -87,10 +94,10 @@ public class Player : MonoBehaviour {
 	public void addPower (PowerInfos infos)
 	{
 		Type monoB = Type.GetType (infos.name);
-		if (monoB != null) {//mono behaviour exists
-			if ((this.GetComponent (monoB)) == null) {//Player doesn't have the component
-				if (RemoveCoin (infos.price)) {//Check if player has enough money to buy
-					Component ret = this.gameObject.AddComponent (monoB);//try to add behaviour
+		if (monoB != null) {//check de l'existance de la mono behaviour
+			if ((this.GetComponent (monoB)) == null) {//Check si le joueur n'a pas encore cette behaviour
+				if (RemoveCoin (infos.price)) {//Vérification de l'argent du joueur
+					Component ret = this.gameObject.AddComponent (monoB);//Ajout de la behaviour
 					if (ret == null) {
 						print ("error adding " + infos.name);
 					} else {
@@ -104,7 +111,7 @@ public class Player : MonoBehaviour {
 				Talk ("I can already do that !");
 				print ("player already has component");
 			}
-		} else {//wrong name entered
+		} else {//Problme avec le nom
 			print ("the monobehaviour's name is wrong");
 		}
 	}
@@ -119,6 +126,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public bool RemoveCoin(int amount){
+		//check si le joueur peut retirer autant d'argent, si oui le fait
 		if ((coins - amount) < 0) {
 			return false;
 		} else {
@@ -134,12 +142,14 @@ public class Player : MonoBehaviour {
 		StartCoroutine (clearDialogueBox ());
 	}
 
+	//laisse la boite de dialoguqe du joueur active 5 secondes puis la cache
 	private IEnumerator clearDialogueBox(){
 		yield return new WaitForSeconds(5);
 		dialogueBox.SetActive (false);
 		StopCoroutine ("clearDialogueBox");
 	}
 
+	//quand le joueur prend des dégats il est invulnérable pendant 2 secondes pour empêcher qu'il ne se fasse enchainer de dégats par des enemis l'entourant
 	public void TakeDamage(int damage){
 		this.health.TakeDamage(damage);
 		this.isInvincible = true;

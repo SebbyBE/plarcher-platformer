@@ -15,6 +15,7 @@ public class Health : MonoBehaviour {
 	}
 
 	public void UpdateHealth(){
+		//Update l'UI concernée
 		OnHealthChange.Invoke (this.currentHealth);
 	}
 

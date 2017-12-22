@@ -7,6 +7,8 @@ public class TextUpdater : MonoBehaviour {
 
 	public Text text;
 	public Text health;
+	public Text Timer;
+
 
 	public void ChangeText(string newText) {
 		text.text = newText;
@@ -23,4 +25,15 @@ public class TextUpdater : MonoBehaviour {
 	public void UpdateHealth(int newHealth){
 		UpdateHealth ("" + newHealth);
 	}
+
+	public void UpdateTime(string newTime){
+		Timer.text = newTime;
+	}
+
+	public void UpdateTime(int newTime){
+		UpdateTime("" + newTime);
+	}
+
+
+
 }

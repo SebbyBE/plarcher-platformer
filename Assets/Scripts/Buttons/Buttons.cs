@@ -5,17 +5,19 @@ using My.Events;
 
 public class Buttons : MonoBehaviour {
 
-	private static int activatedButtons;
+	public static int activatedButtons;
 	private MeshRenderer render;
 
-	public MyEvent toInvoke;
+	public MyEvent secretDoor;
+	public MyEvent timerMiniGame;
 
 	private bool activated = false;
 
-	// Use this for initialization
 	void Start () {
+		//le nombre de boutons qui ont déja été activés
 		activatedButtons = 0;
 		render = GetComponentInParent<MeshRenderer> ();
+		//On change la couleur du bouton en rouge parce qu'il n'est pas activé par défaut
 		render.material.color = Color.red;
 	}
 	
@@ -30,10 +32,25 @@ public class Buttons : MonoBehaviour {
 				break;
 			case 2:
 				Player.INSTANCE.Talk ("I think I heard something,\nmaybe something happened ?");
-				toInvoke.Invoke ();
+				//ouvre la porte secrete
+				secretDoor.Invoke ();
+				break;
+			case 3:
+				Player.INSTANCE.Talk ("Quickly ! I need to get to the other side !");
+				timerMiniGame.Invoke ();
+				StartCoroutine (TimeOutDoor ());
+				//lance un timer dans l'UI de 15 secondes
+				GetComponent<Timer> ().StartTimer (15);
 				break;
 			}
 		}
 	}
-		
+
+	private IEnumerator TimeOutDoor(){
+		//permet au joueur de réactiver le bouton apres le timer passé
+		yield return new WaitForSeconds (15);
+		this.activated = false;
+		activatedButtons--;
+		render.material.color = Color.red;
+	}
 }

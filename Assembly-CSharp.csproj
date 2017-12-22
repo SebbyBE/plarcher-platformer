@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EndOfGame.cs" />
      <Compile Include="Assets\FurBall2D\Scripts\CameraController.cs" />
      <Compile Include="Assets\FurBall2D\Scripts\DestroyCloud.cs" />
      <Compile Include="Assets\FurBall2D\Scripts\HitVelDetection.cs" />
@@ -57,10 +58,10 @@
      <Compile Include="Assets\SapphiArt\SapphiArtchan\Scripts\SapphiArtChan_AnimManager.cs" />
      <Compile Include="Assets\Scripts\Buttons\Buttons.cs" />
      <Compile Include="Assets\Scripts\Buttons\SecretDoor.cs" />
+     <Compile Include="Assets\Scripts\Buttons\TimerDoor.cs" />
      <Compile Include="Assets\Scripts\CustomEvent.cs" />
      <Compile Include="Assets\Scripts\ExitGame.cs" />
      <Compile Include="Assets\Scripts\HealthScripts\Health.cs" />
-     <Compile Include="Assets\Scripts\HealthScripts\PlayerDamage.cs" />
      <Compile Include="Assets\Scripts\Interactions\ClimbingLadders.cs" />
      <Compile Include="Assets\Scripts\Interactions\GetCoin.cs" />
      <Compile Include="Assets\Scripts\Movements\CompleteCameraController.cs" />
@@ -73,8 +74,8 @@
      <Compile Include="Assets\Scripts\Movements\RunComponent.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\RestartGame.cs" />
-     <Compile Include="Assets\Scripts\Sword.cs" />
      <Compile Include="Assets\Scripts\TextUpdater.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\Vendor\Powers\PowerInfos.cs" />
      <Compile Include="Assets\Scripts\Vendor\UI\DragPanel.cs" />
      <Compile Include="Assets\Scripts\Vendor\UI\FocusPanel.cs" />
@@ -88,7 +89,7 @@
      <None Include="Assets\LowPolyWeapon\Shaders\AlphaTest-DiffuseDoublesided.shader" />
      <None Include="Assets\LowPolyWeapon\Shaders\AlphaTest-DiffuseBack.shader" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>D:/worksapce/Unity/plarcher-platformer/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/kyril/plarcher-platformer/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -13,6 +13,7 @@ public class Vendor : MonoBehaviour {
 	void Start(){
 		buttonPrefab = (GameObject)Resources.Load ("Vendor/Power Button");
 		GameObject listofpower = panel.transform.Find("List Contrainer/ListOfPowers").gameObject;
+		//ajout des pouvoirs dans la liste du vendeur
 		foreach(PowerInfos p in infos){
 			GameObject newButton = Instantiate (buttonPrefab);
 			newButton.transform.SetParent(listofpower.transform);
