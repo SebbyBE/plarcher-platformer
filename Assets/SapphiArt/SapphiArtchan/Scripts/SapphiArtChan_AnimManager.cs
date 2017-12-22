@@ -77,8 +77,6 @@ public class SapphiArtChan_AnimManager : MonoBehaviour {
             if (t.name == "TopTeeth")
                 _SapphiArtChanRenderer_TopTeeth = t.gameObject.GetComponent<SkinnedMeshRenderer>();
         }
-        _SapphiArtChanRenderer_Tongue.enabled = false;
-        _SapphiArtChanRenderer_TopTeeth.enabled = false;
     }
 
 

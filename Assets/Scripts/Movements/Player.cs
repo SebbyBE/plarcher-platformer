@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 
 	public static Player INSTANCE;
 
-	public int speed = 5;
+	public float speed = 5f;
 	public LayerMask groundLayer;
 	public float groundDistance = 0.6f;
 	public float jumpStrength = 7f;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 		dialogueBox = this.transform.Find ("DialoguePlayer").gameObject;
 		dialogue = this.transform.Find ("DialoguePlayer").GetComponent<TextMesh>();
 		health = GetComponent<Health> ();
+		this.gameObject.AddComponent<RunComponent> ();
 	}
 
 	void OnEnable(){
@@ -143,6 +144,10 @@ public class Player : MonoBehaviour {
 		this.health.TakeDamage(damage);
 		this.isInvincible = true;
 		StartCoroutine (invicible ());
+	}
+
+	public void Heal(int heal){
+		this.health.Heal (heal);
 	}
 
 	private IEnumerator invicible(){

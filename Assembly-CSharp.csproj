@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Movements\LeftComponent.cs" />
      <Compile Include="Assets\Scripts\Movements\Player.cs" />
      <Compile Include="Assets\Scripts\Movements\RightComponent.cs" />
+     <Compile Include="Assets\Scripts\Movements\RunComponent.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\RestartGame.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
