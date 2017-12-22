@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 545}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -107,10 +107,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 713, y: 495}
-  m_MaxSize: {x: 18008, y: 14045}
+  m_MinSize: {x: 711, y: 471}
+  m_MaxSize: {x: 18006, y: 14021}
   vertical: 0
-  controlID: 10738
+  controlID: 159
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 10681
+  controlID: 11
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -180,8 +180,8 @@ MonoBehaviour:
     y: 508
     width: 1088
     height: 439
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -207,10 +207,10 @@ MonoBehaviour:
     y: 0
     width: 443
     height: 947
-  m_MinSize: {x: 234, y: 495}
-  m_MaxSize: {x: 10004, y: 14045}
+  m_MinSize: {x: 234, y: 471}
+  m_MaxSize: {x: 10004, y: 14021}
   vertical: 1
-  controlID: 10739
+  controlID: 107
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -280,8 +280,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 947
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -539,9 +539,9 @@ MonoBehaviour:
     height: 523
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4ead0000
-    m_LastClickedID: 44366
-    m_ExpandedIDs: d02bf9ff902ef9fffaebf9ff76b4faff64c2faff982afcff9c2afcffd22afcffda2afcff249bfefff89bfeffee9cfeff28c1feff9812ffff502cffffbc37ffffbc6effff9674ffff60a6ffff90d3ffff94dcffff0000000074380000d0ac00002caf000004b1000010b1000078b20000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 1467ffffaa67ffffa068ffffcad5fffffee6ffff8ae7ffff80e8ffff12ebffff9cebffff98ecffffdefbffff00000000bc830000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -601,19 +601,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/LowPolyWeapon/Models
+    - Assets/Scripts/Movements
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/LowPolyWeapon/Models
+  - Assets/Scripts/Movements
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\worksapce\Unity\plarcher-platformer
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 67}
-    m_SelectedIDs: a6bb0200
-    m_LastClickedID: 179110
-    m_ExpandedIDs: 00000000d43600005e37000070370000ea370000203800003238000042380000aa4202003c4302009ebb020000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 263}
+    m_SelectedIDs: 0e280000
+    m_LastClickedID: 10254
+    m_ExpandedIDs: 000000004e250000be27000004280000da290000622a00003e2b00006a2b0000922b0000a82b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -641,7 +641,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d43600005e37000070370000ea37000020380000323800004238000046380000aa4202003c43020000ca9a3bffffff7f
+    m_ExpandedIDs: 000000004e250000be270000e427000004280000da290000622a00003e2b00006a2b0000922b0000a82b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
