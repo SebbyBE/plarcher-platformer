@@ -23,9 +23,6 @@ public class Player : MonoBehaviour {
 	public GameObject dieMenu;
 
 	[HideInInspector]
-	public Animator anim;
-
-	[HideInInspector]
 	public bool lookRight;
 
 	public int coins = 0;
@@ -42,7 +39,6 @@ public class Player : MonoBehaviour {
 	void Start () {
 		INSTANCE = this;
 		lookRight = true;
-		anim = GetComponentInChildren<Animator> ();
 		dialogueBox = this.transform.Find ("DialoguePlayer").gameObject;
 		dialogue = this.transform.Find ("DialoguePlayer").GetComponent<TextMesh>();
 		health = GetComponent<Health> ();
@@ -53,7 +49,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		dieMenu.SetActive (true);
+		if (dieMenu != null) {
+			dieMenu.SetActive (true);
+		}
 	}
 		
 	void FixedUpdate(){
@@ -63,12 +61,11 @@ public class Player : MonoBehaviour {
 		} else {
 			isGrounded = false;
 		}
-		anim.SetBool ("IsGrounded", isGrounded);
-		anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 	}
 
 	void Update(){
 		//décommenter et appuyer sur 'O' pour passer directement à la deuxième partie du jeu (cheat)
+		//Dev command
 		/*
 		if (Input.GetKeyDown (KeyCode.O)) {
 			this.gameObject.AddComponent<LeftComponent> ();
